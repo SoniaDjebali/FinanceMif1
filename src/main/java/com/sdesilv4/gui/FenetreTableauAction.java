@@ -16,18 +16,18 @@ import javax.swing.JPanel;
  */
 public class FenetreTableauAction extends JFrame{
     public FenetreTableauAction(){
-        //Définir un titre pour la fenêtre
+        //DÃ©finir un titre pour la fenÃªtre
         this.setTitle("Recapitulatif Actions");
-        //Définir sa taille
-        this.setSize(700, 150);
-        //Positionner la fenêtre au centre de la fenêtre
+        //DÃ©finir sa taille
+        this.setSize(700, 200);
+        //Positionner la fenÃªtre au centre de la fenÃªtre
         this.setLocationRelativeTo(null);
-        //Rendre visible la fenêtre
+        //Rendre visible la fenÃªtre
         this.setVisible(true);
-        //Empêcher le redimensionnement de la fenêtre
+        //EmpÃªcher le redimensionnement de la fenÃªtre
         this.setResizable(false);
 
-        // Déclaration manuelle des valeurs du tableau des actions
+        // DÃ©claration manuelle des valeurs du tableau des actions
         Object[][] actionData = {
                 {"dg","dsh","dsh", "dsh", "sdg", "sdg"},
                 {"dg","dsh","dsh", "dsh", "sdg", "sdg"},

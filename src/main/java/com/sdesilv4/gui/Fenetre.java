@@ -29,17 +29,17 @@ public class Fenetre extends JFrame{
     private JComboBox choixActionIndice = new JComboBox();
 
     public Fenetre() {
-        //Définir un titre pour la fenêtre
+        //DÃ©finir un titre pour la fenÃªtre
         this.setTitle("Projet Finance");
-        //Définir sa taille
-        this.setSize(400, 85);
-        //Positionner la fenêtre au centre de la fenêtre
+        //DÃ©finir sa taille
+        this.setSize(600, 90);
+        //Positionner la fenÃªtre au centre de la fenÃªtre
         this.setLocationRelativeTo(null);
         //Terminer le processus lorsqu'on clique sur la croix rouge
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Rendre visible la fenêtre
+        //Rendre visible la fenÃªtre
         this.setVisible(true);
-        //Empêcher le redimensionnement de la fenêtre
+        //EmpÃªcher le redimensionnement de la fenÃªtre
         this.setResizable(false);
 
         //Ajouter le label au JPanel, le comboBox au JPanel
@@ -59,11 +59,11 @@ public class Fenetre extends JFrame{
 
         this.setVisible(true);
 
-        //Définir taille
+        //DÃ©finir taille
         choixCACSBF.setPreferredSize(new Dimension(70, 20));
         choixActionIndice.setPreferredSize(new Dimension(70, 20));
 
-        //Insérer des valeurs dans le comboBox
+        //InsÃ©rer des valeurs dans le comboBox
         choixCACSBF.addItem("CAC 40");
         choixCACSBF.addItem("SBF 250");
         choixActionIndice.addItem("Action");
@@ -78,13 +78,13 @@ public class Fenetre extends JFrame{
         this.setVisible(true);
     }
 
-    // Pour créer une bordure entre la fenetre et la GridLayout
+    // Pour crÃ©er une bordure entre la fenetre et la GridLayout
     public Insets getInsets() {
         Insets normal = super.getInsets();
         return new Insets(normal.top +10, normal.left + 10, normal.bottom + 20, normal.right + 20);
     }
 
-    // Action au déclenchement d'un evenement
+    // Action au dÃ©clenchement d'un evenement
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==boutonValider)
             if(choixCACSBF.getSelectedItem().toString() == "Choisir l'indice"){

@@ -15,25 +15,23 @@ import javax.swing.JPanel;
  */
 public class Fenetre extends JFrame{
     //Instanciation d'un objet JPanel
-    private JPanel JPanTitle = new JPanel();
-    private JPanel jPan = new JPanel();
-    private JPanel jPan2 = new JPanel();
-    private JPanel jPan3 = new JPanel();
-    private JPanel jPan4 = new JPanel();
+    private static JPanel jPan = new JPanel();
     //Instanciation d'un bouton
-    private JButton boutonValider = new JButton("Valider");
+    private static JButton boutonValider = new JButton("Valider");
+    private static JButton boutonDetail = new JButton("Details");
     //Instanciation d'un Label
-    private JLabel labelChoix = new JLabel("Choix : ");
+    private static JLabel labelChoix = new JLabel("Choix : ");
     //Instanciation d'un comboBox
-    private JComboBox choixCACSBF = new JComboBox();
-    private JComboBox choixActionIndice = new JComboBox();
-    private JComboBox listeAction = new JComboBox();
+    private static JComboBox choixCACSBF = new JComboBox();
+    private static JComboBox choixActionIndice = new JComboBox();
+    private static JComboBox listeAction = new JComboBox();
 
     public Fenetre() {
+        jPan.setLayout(null);
         //Définir un titre pour la fenêtre
         this.setTitle("Projet Finance");
         //Définir sa taille
-        this.setSize(400, 200);
+        this.setSize(390, 300);
         //Positionner la fenêtre au centre de la fenêtre
         this.setLocationRelativeTo(null);
         //Terminer le processus lorsqu'on clique sur la croix rouge
@@ -42,48 +40,38 @@ public class Fenetre extends JFrame{
         this.setVisible(true);
         //Empêcher le redimensionnement de la fenêtre
         this.setResizable(false);
+        // Changer couleur de la fenêtre
+        this.getContentPane().setBackground(Color.WHITE);
 
-        //Ajouter le label au JPanel, le comboBox au JPanel
-        this.setLayout(new BorderLayout());
+        jPan.setLayout(new BorderLayout());
+        getContentPane().add(jPan);
 
-        JPanTitle.setVisible(true);
+        jPan.setLayout(null);
 
-        //Placer composants dans une grid
-        this.setLayout(new GridLayout(1, 4, 20, 50));
+        labelChoix.setBounds(40, 20, 80, 40);
+        labelChoix.setFont(new Font("Times New Roman", Font.BOLD, 17)); // Changer la police du texte
+        Color couleur = new Color(200, 100, 255); // Changer la couleur du texte
+        labelChoix.setForeground(couleur);
+        labelChoix.setVisible(true);
+        jPan.add(labelChoix);
 
-        this.getContentPane().add(labelChoix);
-        this.getContentPane().add(choixCACSBF);
-        this.getContentPane().add(choixActionIndice);
-        this.getContentPane().add(listeAction);
-        this.getContentPane().add(boutonValider);
-
-        labelChoix.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Centrer le texte
-
-        this.setVisible(true);
-
-        //Définir taille
-        choixCACSBF.setPreferredSize(new Dimension(70, 20));
-        choixActionIndice.setPreferredSize(new Dimension(70, 20));
-
-        //Insérer des valeurs dans le comboBox
-        choixCACSBF.addItem("CAC 40");
+        choixCACSBF.setBounds(120, 20, 100, 40);
+        choixCACSBF.addItem("CAC 40"); //Insérer des valeurs dans le comboBox
         choixCACSBF.addItem("SBF 250");
-        choixActionIndice.addItem("Action");
-        //choixActionIndice.addItem("Indice");
+        choixCACSBF.setVisible(true);
+        jPan.add(choixCACSBF);
 
-        //Colorer le bouton en blanc
-        //boutonValider.setBackground(Color.WHITE);
-        //boutonValider.addActionListener(new BoutonValiderCAC());
+        boutonValider.setBounds(240, 20, 100, 40);
+        jPan.add(boutonValider);
 
-        //this.getContentPane().add(jPan4);
+        listeAction.setBounds(40, 100, 300, 40);
+        jPan.add(listeAction);
 
+        boutonDetail.setBounds(150, 180, 100, 40);
+        jPan.add(boutonDetail);
+
+        jPan.setBackground(Color.WHITE);
         this.setVisible(true);
-    }
-
-    // Pour créer une bordure entre la fenetre et la GridLayout
-    public Insets getInsets() {
-        Insets normal = super.getInsets();
-        return new Insets(normal.top +10, normal.left + 10, normal.bottom + 20, normal.right + 20);
     }
 
     public String getComboBox_choixCACSBF(){

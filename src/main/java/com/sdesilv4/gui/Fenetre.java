@@ -23,7 +23,6 @@ public class Fenetre extends JFrame{
     private static JLabel labelChoix = new JLabel("Choix : ");
     //Instanciation d'un comboBox
     private static JComboBox choixCACSBF = new JComboBox();
-    private static JComboBox choixActionIndice = new JComboBox();
     private static JComboBox listeAction = new JComboBox();
 
     public Fenetre() {
@@ -70,6 +69,8 @@ public class Fenetre extends JFrame{
         boutonDetail.setBounds(150, 180, 100, 40);
         jPan.add(boutonDetail);
 
+        boutonDetail.addActionListener(new BoutonDesActions());
+
         jPan.setBackground(Color.WHITE);
         this.setVisible(true);
     }
@@ -78,40 +79,40 @@ public class Fenetre extends JFrame{
         return (String) choixCACSBF.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
     }
 
-    public String getComboBox_choixActionIndice(){
-        return (String) choixActionIndice.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
+    public String getComboBox_choixAction(){
+        return (String) listeAction.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
     }
 
     public void addPremierListener(ActionListener listenPremierBouton){
         boutonValider.addActionListener(listenPremierBouton);
     }
 
+    public void addDeuxiemeListener(ActionListener listenDeuxiemeListener){
+        boutonDetail.addActionListener(listenDeuxiemeListener);
+    }
+
     // Action au déclenchement d'un evenement
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==boutonValider)
-            if(choixCACSBF.getSelectedItem().toString() == "Choisir l'indice"){
-                JOptionPane.showMessageDialog(this,"Veuillez choisir un indice.", "Indice non renseigne", JOptionPane.WARNING_MESSAGE);
-            }else if(choixCACSBF.getSelectedItem().toString() == "CAC 40"){
+        if(e.getSource()== boutonValider)
+            if(choixCACSBF.getSelectedItem().toString() == "CAC 40"){
                 // action si CAC 40
-
                 // par exemple on veut afficher le tableau dans une nouvelle fenetre
-              //  actions.setVisible(true);
+                //  actions.setVisible(true);
 
             }else if(choixCACSBF.getSelectedItem().toString() == "SBF 120"){
                 // action si SBF 120
             }
     }
 
-    /*class BoutonValiderCAC implements ActionListener {
-        public void actionPerformed(ActionEvent argBouton) {
-            if (choixCACSBF.getSelectedIndex() == 0 && choixActionIndice.getSelectedIndex() == 0) {
-                new FenetreTableauAction().setVisible(true);
-            }
-            else if (choixCACSBF.getSelectedIndex() == 0 && choixActionIndice.getSelectedIndex() == 1) {
+    class BoutonDesActions implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (choixCACSBF.getSelectedIndex() == 0) {
+                new TableauIndice().setVisible(true);
+            } else if (choixCACSBF.getSelectedIndex() == 1) {
                 new TableauIndice().setVisible(true);
             }
         }
-    }*/
+    }
 
     public void messageErreur(String messageErreur){
 

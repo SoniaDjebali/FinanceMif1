@@ -16,25 +16,18 @@ public class VueModel {
     private static int compteur = 0;
     private static List toutesActions = new LinkedList();
 
-    public static void selectSingleRecordAndFieldByRecordNumber(String choixCACSBF, String choixActionIndice) {
+    public static void selectSingleRecordAndFieldByRecordNumber(String choixCACSBF) {
         BasicDBObject whereQuery = new BasicDBObject();
 
         if(choixCACSBF == "CAC 40"){
-            if(choixActionIndice == "Action"){
+            {
                 ModelGestionIndiceFromYahoo CGi = new ModelGestionIndiceFromYahoo("^FCHI");   //Méthode du modèle permettant de récupérer tous les symboles d'action pour un indice donné depuis l'API Yahoo Finance
-                System.out.println(CGi.GetIndex().toString());
-            }
-            else{
-
+                toutesActions.add(CGi.GetIndex().toString());
+                System.out.println(toutesActions);
             }
         }
         else if (choixCACSBF == "SBF 250"){
-            if(choixActionIndice == "Action"){
 
-            }
-            else{
-
-            }
         }
     }
 

@@ -38,7 +38,7 @@ public class VueController {
 
             try {
 
-                leModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice);
+                leModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice); // Utilisation de la méthode
 
                 for(i=0; i<leModele.getCompteur(); i++) {
                     laVue.setComboBoxListeActions((String) leModele.getDonnee().get(i));  // rempli la ComboBox des résultats

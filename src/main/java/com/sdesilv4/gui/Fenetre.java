@@ -27,12 +27,13 @@ public class Fenetre extends JFrame{
     //Instanciation d'un comboBox
     private JComboBox choixCACSBF = new JComboBox();
     private JComboBox choixActionIndice = new JComboBox();
+    private JComboBox listeAction = new JComboBox();
 
     public Fenetre() {
         //Définir un titre pour la fenêtre
         this.setTitle("Projet Finance");
         //Définir sa taille
-        this.setSize(400, 85);
+        this.setSize(400, 200);
         //Positionner la fenêtre au centre de la fenêtre
         this.setLocationRelativeTo(null);
         //Terminer le processus lorsqu'on clique sur la croix rouge
@@ -53,6 +54,7 @@ public class Fenetre extends JFrame{
         this.getContentPane().add(labelChoix);
         this.getContentPane().add(choixCACSBF);
         this.getContentPane().add(choixActionIndice);
+        this.getContentPane().add(listeAction);
         this.getContentPane().add(boutonValider);
 
         labelChoix.setHorizontalAlignment(javax.swing.SwingConstants.CENTER); // Centrer le texte
@@ -67,11 +69,11 @@ public class Fenetre extends JFrame{
         choixCACSBF.addItem("CAC 40");
         choixCACSBF.addItem("SBF 250");
         choixActionIndice.addItem("Action");
-        choixActionIndice.addItem("Indice");
+        //choixActionIndice.addItem("Indice");
 
         //Colorer le bouton en blanc
         //boutonValider.setBackground(Color.WHITE);
-        boutonValider.addActionListener(new BoutonValiderCAC());
+        //boutonValider.addActionListener(new BoutonValiderCAC());
 
         //this.getContentPane().add(jPan4);
 
@@ -82,6 +84,18 @@ public class Fenetre extends JFrame{
     public Insets getInsets() {
         Insets normal = super.getInsets();
         return new Insets(normal.top +10, normal.left + 10, normal.bottom + 20, normal.right + 20);
+    }
+
+    public String getComboBox_choixCACSBF(){
+        return (String) choixCACSBF.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
+    }
+
+    public String getComboBox_choixActionIndice(){
+        return (String) choixActionIndice.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
+    }
+
+    public void addPremierListener(ActionListener listenPremierBouton){
+        boutonValider.addActionListener(listenPremierBouton);
     }
 
     // Action au déclenchement d'un evenement
@@ -100,7 +114,7 @@ public class Fenetre extends JFrame{
             }
     }
 
-    class BoutonValiderCAC implements ActionListener {
+    /*class BoutonValiderCAC implements ActionListener {
         public void actionPerformed(ActionEvent argBouton) {
             if (choixCACSBF.getSelectedIndex() == 0 && choixActionIndice.getSelectedIndex() == 0) {
                 new FenetreTableauAction().setVisible(true);
@@ -109,6 +123,15 @@ public class Fenetre extends JFrame{
                 new TableauIndice().setVisible(true);
             }
         }
+    }*/
+
+    public void messageErreur(String messageErreur){
+
+        JOptionPane.showMessageDialog(this, messageErreur);
+    }
+
+    public void setComboBoxListeActions(String actions){
+        listeAction.addItem(actions);
     }
 
 

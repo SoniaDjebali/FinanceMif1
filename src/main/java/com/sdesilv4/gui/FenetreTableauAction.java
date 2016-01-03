@@ -42,7 +42,7 @@ public class FenetreTableauAction extends JFrame{
 
 
         // Couleur du tableau
-        tableauAction.setBackground(Color.white);
+        tableauAction.setBackground(new Color(240,248,255));
 
     }
 }

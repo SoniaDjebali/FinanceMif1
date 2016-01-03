@@ -18,6 +18,7 @@ public class Fenetre extends JFrame{
     private static JPanel jPan = new JPanel();
     //Instanciation d'un bouton
     private static JButton boutonValider = new JButton("Valider");
+    //private JButton boutonFermer = new JButton("Fermer");
     private static JButton boutonDetail = new JButton("Details");
     //Instanciation d'un Label
     private static JLabel labelChoix = new JLabel("Choix : ");
@@ -27,19 +28,19 @@ public class Fenetre extends JFrame{
 
     public Fenetre() {
         jPan.setLayout(null);
-        //Définir un titre pour la fenêtre
+        //DÃ©finir un titre pour la fenÃªtre
         this.setTitle("Projet Finance");
-        //Définir sa taille
+        //DÃ©finir sa taille
         this.setSize(390, 300);
-        //Positionner la fenêtre au centre de la fenêtre
+        //Positionner la fenÃªtre au centre de la fenÃªtre
         this.setLocationRelativeTo(null);
         //Terminer le processus lorsqu'on clique sur la croix rouge
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //Rendre visible la fenêtre
+        //Rendre visible la fenÃªtre
         this.setVisible(true);
-        //Empêcher le redimensionnement de la fenêtre
+        //EmpÃªcher le redimensionnement de la fenÃªtre
         this.setResizable(false);
-        // Changer couleur de la fenêtre
+        // Changer couleur de la fenÃªtre
         this.getContentPane().setBackground(Color.WHITE);
 
         jPan.setLayout(new BorderLayout());
@@ -55,7 +56,7 @@ public class Fenetre extends JFrame{
         jPan.add(labelChoix);
 
         choixCACSBF.setBounds(120, 20, 100, 40);
-        choixCACSBF.addItem("CAC 40"); //Insérer des valeurs dans le comboBox
+        choixCACSBF.addItem("CAC 40"); //InsÃ©rer des valeurs dans le comboBox
         choixCACSBF.addItem("SBF 250");
         choixCACSBF.setVisible(true);
         jPan.add(choixCACSBF);
@@ -76,11 +77,11 @@ public class Fenetre extends JFrame{
     }
 
     public String getComboBox_choixCACSBF(){
-        return (String) choixCACSBF.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
+        return (String) choixCACSBF.getSelectedItem(); // Permet de rÃ©cupÃ©rer la valeur String du ComboBox
     }
 
     public String getComboBox_choixAction(){
-        return (String) listeAction.getSelectedItem(); // Permet de récupérer la valeur String du ComboBox
+        return (String) listeAction.getSelectedItem(); // Permet de rÃ©cupÃ©rer la valeur String du ComboBox
     }
 
     public void addPremierListener(ActionListener listenPremierBouton){
@@ -91,7 +92,7 @@ public class Fenetre extends JFrame{
         boutonDetail.addActionListener(listenDeuxiemeListener);
     }
 
-    // Action au déclenchement d'un evenement
+    // Action au dÃ©clenchement d'un evenement
     public void actionPerformed(ActionEvent e){
         if(e.getSource()== boutonValider)
             if(choixCACSBF.getSelectedItem().toString() == "CAC 40"){

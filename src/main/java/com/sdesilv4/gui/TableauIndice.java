@@ -13,7 +13,7 @@ public class TableauIndice extends JFrame{
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("JTable");
-        this.setSize(800, 180);
+        this.setSize(600, 500);
         this.setLocationRelativeTo(null);
 
  JTable table = new JTable(10, 4);
@@ -60,5 +60,3 @@ public class TableauIndice extends JFrame{
 }
 
         
-    }
-}

@@ -14,15 +14,15 @@ import java.awt.event.ActionListener;
  */
 public class VueController {
 
-    private Fenetre laVue;
+    private Fenetre maVue;
     private VueModel leModele;
 
-    public VueController(Fenetre laVue, VueModel leModele){
+    public VueController(Fenetre maVue, VueModel leModele){
 
-        this.laVue = laVue;
+        this.maVue = maVue;
         this.leModele = leModele;
 
-        this.laVue.addPremierListener(new PremierListener());
+        this.maVue.addPremierListener(new PremierListener());
     }
 
     class PremierListener implements ActionListener {  // pour le bouton Valider
@@ -31,23 +31,23 @@ public class VueController {
             String valueChoixCACSBF;
             String valueChoixActionIndice;
 
-            valueChoixCACSBF = laVue.getComboBox_choixCACSBF(); // valeur du comboBox
-            valueChoixActionIndice = laVue.getComboBox_choixActionIndice(); // valeur du combobox
+            valueChoixCACSBF = maVue.getComboBox_choixCACSBF(); // valeur du comboBox
+            valueChoixActionIndice = maVue.getComboBox_choixActionIndice(); // valeur du combobox
 
             int i = 0;
 
             try {
 
-                leModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice); // Utilisation de la méthode
+                leModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice); // Utilisation de la mï¿½thode
 
                 for(i=0; i<leModele.getCompteur(); i++) {
-                    laVue.setComboBoxListeActions((String) leModele.getDonnee().get(i));  // rempli la ComboBox des résultats
+                    maVue.setComboBoxListeActions((String) leModele.getDonnee().get(i));  // rempli la ComboBox des rï¿½sultats
                 }
 
             }
             catch(NumberFormatException exception){
 
-                laVue.messageErreur("Erreur !");
+                maVue.messageErreur("Erreur !");
             }
         }
     }

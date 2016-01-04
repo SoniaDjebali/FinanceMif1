@@ -1,15 +1,6 @@
 package com.sdesilv4.gui;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  * Created by paard consulting on 10/11/2015.
@@ -19,7 +10,7 @@ public class FenetreTableauAction extends JFrame{
         //Définir un titre pour la fenêtre
         this.setTitle("Recapitulatif Actions");
         //Définir sa taille
-        this.setSize(700, 200);
+        this.setSize(700, 500);
         //Positionner la fenêtre au centre de la fenêtre
         this.setLocationRelativeTo(null);
         //Rendre visible la fenêtre

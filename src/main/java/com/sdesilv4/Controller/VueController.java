@@ -15,12 +15,12 @@ import java.awt.event.ActionListener;
 public class VueController {
 
     private Fenetre maVue;
-    private VueModel leModele;
+    private VueModel monModele;
 
-    public VueController(Fenetre maVue, VueModel leModele){
+    public VueController(Fenetre maVue, VueModel monModele){
 
         this.maVue = maVue;
-        this.leModele = leModele;
+        this.monModele = monModele;
 
         this.maVue.addPremierListener(new PremierListener());
     }
@@ -38,10 +38,10 @@ public class VueController {
 
             try {
 
-                leModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice); // Utilisation de la m�thode
+                monModele.selectSingleRecordAndFieldByRecordNumber(valueChoixCACSBF, valueChoixActionIndice); // Utilisation de la m�thode
 
-                for(i=0; i<leModele.getCompteur(); i++) {
-                    maVue.setComboBoxListeActions((String) leModele.getDonnee().get(i));  // rempli la ComboBox des r�sultats
+                for(i=0; i<monModele.getCompteur(); i++) {
+                    maVue.setComboBoxListeActions((String) monModele.getDonnee().get(i));  // rempli la ComboBox des r�sultats
                 }
 
             }
